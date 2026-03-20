@@ -1,102 +1,163 @@
-# ONESKY Project
+# OneSky Project
 
-## Prérequis
-- Node.js (recommandé 18+)
-- PostgreSQL (port `5432`)
-- npm
+Une application web complète avec gestion de produits, système de devis, support client et administration.
 
-## 1) Backend (Express + Prisma)
+## 🏗️ Architecture
 
-### A. Configurer l'environnement
-1. Aller dans `backend/`
-2. Vérifier/adapter `backend/.env`
+- **Frontend**: React + Vite + TypeScript + TailwindCSS + Shadcn/ui
+- **Backend**: Node.js + Express + Prisma + PostgreSQL
+- **Déploiement**: Docker + GitHub Actions
 
-Variables utilisées côté backend :
-- `DATABASE_URL` : URL de connexion PostgreSQL (utilisée par Prisma via `env("DATABASE_URL")`)
-- `JWT_SECRET` : secret JWT pour l'accès admin/portail
-- `REFRESH_TOKEN_SECRET` : secret JWT refresh (optionnel, fallback si absent)
-- `PORT` : port du backend (optionnel, default `5000`)
-- `NODE_ENV` : `production` ou `development` (optionnel, default dev)
-- `CORS_ORIGINS` : liste d'origines autorisées en dev (optionnel, ex: `http://localhost:5173,http://localhost:5174`)
+## 🚀 Démarrage rapide
 
-Variables pour l'envoi d'emails (admin / notifications) :
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` (optionnels)
+### Prérequis
+- Node.js 18+
+- PostgreSQL
+- Docker (optionnel)
 
-Exemple de `backend/.env` :
-```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/onesky_db?schema=public"
-JWT_SECRET="onesky-super-secret-key"
-REFRESH_TOKEN_SECRET="refresh-secret"
-PORT=5000
+### Installation
 
-# Dev: autoriser le frontend sur plusieurs ports
-CORS_ORIGINS="http://localhost:5173,http://localhost:5174"
-
-# Emails (SMTP) - optionnel si tu n'as pas encore de config mail
-SMTP_HOST="smtp.example.com"
-SMTP_PORT=587
-SMTP_USER="user"
-SMTP_PASS="pass"
-SMTP_FROM="noreply@onesky.space"
+1. **Cloner le dépôt**
+```bash
+git clone https://github.com/abr-288/onesky.git
+cd onesky
 ```
 
-### B. Installer les dépendances
-```powershell
+2. **Backend**
+```bash
 cd backend
 npm install
-```
-
-### C. Créer la base (migrations)
-```powershell
-npx prisma migrate dev --name init
-```
-
-### D. Lancer les seed data (données “primaires”)
-Les seeds créent l’admin + initialisent le contenu (pages/sections/produits).
-
-1. Seed Admin
-```powershell
-node src/scripts/seedAdmin.js
-```
-
-2. Seed Contenu (pages/sections/produits)
-```powershell
-node src/scripts/seedContent.js
-```
-
-Important :
-- `seedContent.js` fait un `deleteMany` sur `Section` avant de (re)créer le contenu. À utiliser avec attention si tu as déjà des modifications en base.
-
-### E. Démarrer le backend
-```powershell
+cp .env.example .env
+# Configurer votre DATABASE_URL dans .env
+npx prisma migrate dev
+npx prisma generate
 npm run dev
 ```
-Le backend écoute sur `http://localhost:5000`.
 
-## Identifiants admin (issus des seeds)
-- Email : `admin@onesky.com`
-- Mot de passe : `Admin@2026!`
-
-## 2) Frontend (React + Vite)
-
-### A. Installer les dépendances
-```powershell
+3. **Frontend**
+```bash
 cd onesky
 npm install
-```
-
-### B. Démarrer le frontend
-```powershell
 npm run dev
 ```
-Le frontend écoute sur `http://localhost:5173` (ou un port adjacent si 5173 est déjà utilisé).
 
-## 3) Démarrage complet
-1. Lancer PostgreSQL
-2. `backend`: `npm run dev`
-3. `onesky`: `npm run dev`
-4. Ouvrir le navigateur sur l’URL du frontend
+### Avec Docker
 
-## Remarque CORS (dev)
-Le frontend communique avec `http://localhost:5000`. Si le port frontend change (5174, etc.), le backend gère les origines `localhost:*` en mode dev pour éviter les blocages CORS.
+```bash
+# Frontend uniquement
+cd onesky
+docker build -t onesky-frontend .
+docker run -p 3000:80 onesky-frontend
 
+# Ou avec docker-compose
+docker-compose up -d
+```
+
+## 📁 Structure du projet
+
+```
+onesky/
+├── backend/              # API Node.js + Express
+│   ├── src/
+│   │   ├── controllers/  # Contrôleurs API
+│   │   ├── routes/       # Routes Express
+│   │   ├── services/     # Services métier
+│   │   └── middlewares/  # Middlewares
+│   ├── prisma/           # Schéma de base de données
+│   └── scripts/          # Scripts de seed
+├── onesky/               # Application React
+│   ├── src/
+│   │   ├── components/   # Composants React
+│   │   ├── pages/        # Pages de l'application
+│   │   └── lib/          # Utilitaires
+└── .github/workflows/    # CI/CD GitHub Actions
+```
+
+## 🔧 Configuration
+
+### Variables d'environnement
+
+**Backend (.env)**
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/onesky"
+JWT_SECRET="your-secret-key"
+PORT=3001
+```
+
+**Frontend (.env)**
+```env
+VITE_API_URL="http://localhost:3001"
+```
+
+## 🚀 Déploiement
+
+### GitHub Actions
+
+Le projet utilise GitHub Actions pour le CI/CD :
+
+- **Branch `develop`** → Déploiement en staging
+- **Branch `main`** → Déploiement en production
+
+### Manuel
+
+1. **Build du frontend**
+```bash
+cd onesky
+npm run build
+```
+
+2. **Lancement du backend**
+```bash
+cd backend
+npm start
+```
+
+## 📊 Fonctionnalités
+
+- 🏠 **Page d'accueil** personnalisable
+- 📱 **Gestion des produits** avec fiches détaillées
+- 💬 **Système de devis** et support client
+- 👥 **Gestion des utilisateurs** avec rôles
+- 🔐 **Authentification** sécurisée
+- 📧 **Notifications par email**
+- 📊 **Tableau de bord** administrateur
+
+## 🛠️ Technologies
+
+### Frontend
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- Shadcn/ui
+- React Router
+- React Query
+
+### Backend
+- Node.js
+- Express
+- Prisma ORM
+- PostgreSQL
+- JWT
+- bcryptjs
+
+## 📝 API Documentation
+
+L'API backend expose les endpoints suivants :
+
+- `POST /api/auth/login` - Connexion
+- `GET /api/products` - Liste des produits
+- `POST /api/quotes` - Créer un devis
+- `GET /api/admin/*` - Endpoints admin
+
+## 🤝 Contribuer
+
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Commit les changements (`git commit -am 'Ajout nouvelle fonctionnalité'`)
+4. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
+5. Ouvrir une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence ISC.

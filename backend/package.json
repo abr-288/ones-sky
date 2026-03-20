@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "start:hostinger": "node hostinger.js",
     "dev": "nodemon src/server.js",
+    "build": "echo 'Backend does not require build step' && exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

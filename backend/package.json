@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "start:hostinger": "node hostinger.js",
+    "start:vercel": "node vercel-server.js",
     "dev": "nodemon src/server.js",
     "build": "echo 'Backend does not require build step' && exit 0",
+    "postbuild": "cp -r src api/ || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

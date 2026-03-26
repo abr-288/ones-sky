@@ -36,8 +36,8 @@ async function fullSeed() {
       data: {
         id: 'global',
         siteName: 'ONESKY',
-        contactEmail: 'contact@onesky.space',
-        supportEmail: 'support@onesky.space',
+        contactEmail: 'contact@ones-sky.net',
+        supportEmail: 'support@ones-sky.net',
         footerText: '© 2026 ONESKY - Intelligence Géospatiale & Services Satellitaires'
       }
     });
@@ -285,7 +285,7 @@ async function fullSeed() {
                 description: "Architecture hybride combinant transmission laser et RF.",
                 cards: [
                     { title: "GNOSSOS-A", subtitle: "Souveraineté Vision", description: "Imagerie Très Haute Résolution (30cm GSD).", icon: "Globe", items: ["Vision 3D", "Spectre élargi"] },
-                    { title: "SKY-3 Connect", subtitle: "Laser Mesh", description: "Relais de données spatiales haute vélocité.", icon: "Radio", items: ["Latence < 50ms", "Maillage dynamique"] }
+                    { title: "GEOSPHERA", subtitle: "Observation Terrestre", description: "Télédétection haute résolution pour le monitoring environnemental permanent.", icon: "Globe", items: ["Vision 3D", "Spectre élargi"] },
                 ]
             }
         },

@@ -107,9 +107,9 @@ async function seedContent() {
                 description: "La constellation ONE SKY s'appuie sur des actifs complémentaires, combinant transmission et observation.",
                 cards: [
                     {
-                        title: "SKY 1 & SKY 2",
+                        title: "NEXORA & LINKARA",
                         subtitle: "Communication & Transmission",
-                        description: "SKY 1 et SKY 2 sont optimisés pour la communication et la transmission sécurisée de données en orbite basse (LEO).",
+                        description: "NEXORA et LINKARA sont optimisés pour la communication et la transmission sécurisée de données en orbite basse (LEO).",
                         icon: "Radio",
                         items: [
                           "Satellites en orbite basse (LEO)",
@@ -119,9 +119,9 @@ async function seedContent() {
                         ]
                     },
                     {
-                        title: "SKY 3",
+                        title: "GEOSPHERA",
                         subtitle: "Observation de la Terre",
-                        description: "SKY 3 est dédié à la télédétection et à l'imagerie satellitaire, offrant une lecture objective des territoires.",
+                        description: "GEOSPHERA est dédié à la télédétection et à l'imagerie satellitaire, offrant une lecture objective des territoires.",
                         icon: "Globe",
                         items: [
                           "Acquisitions régulières et programmables",
@@ -624,11 +624,11 @@ async function seedContent() {
     // 8. Products Seeding
     const products = [
       {
-        id: "sky-loupe",
-        name: "SKY LOUPE",
-        tagline: "Suivi des constructions & contrôle des permis",
+        id: "sky-build",
+        name: "SKY BUILD",
+        tagline: "Gestion et suivi des permis de construire et chantiers.",
         description: "Plateforme de télédétection dédiée au suivi des constructions et au contrôle des permis de construire.",
-        fullDescription: "SKY LOUPE est notre solution phare pour la surveillance urbaine et le contrôle foncier. En combinant l'imagerie très haute résolution et des algorithmes de détection de changements par Deep Learning, SKY LOUPE permet aux autorités de suivre l'évolution des constructions en temps réel et de vérifier leur conformité avec les permis délivrés.",
+        fullDescription: "SKY BUILD est notre solution phare pour la gestion et suivi des permis de construire et chantiers. En combinant l'imagerie très haute résolution et des algorithmes de détection de changements par Deep Learning, SKY BUILD permet aux autorités de suivre l'évolution des constructions en temps réel et de vérifier leur conformité avec les permis délivrés.",
         image: "https://img.freepik.com/free-photo/palace-china_1127-4067.jpg",
         color: "primary",
         features: [
@@ -649,11 +649,11 @@ async function seedContent() {
         ]
       },
       {
-        id: "sky-sentinel",
-        name: "SKY SENTINEL",
-        tagline: "Gestion des frontières & veille territoriale",
+        id: "sky-watch",
+        name: "SKY WATCH",
+        tagline: "Observation continue et détection d'anomalies.",
         description: "Système d'observation satellitaire pour la sécurité territoriale et la coordination opérationnelle.",
-        fullDescription: "SKY SENTINEL offre une vision stratégique globale pour la gestion des frontières et des zones sensibles. Grâce à l'analyse multi-capteurs (Optique & Radar), la plateforme détecte les activités inhabituelles, les nouvelles pistes ou les mouvements suspects, permettant une réponse rapide des forces de sécurité.",
+        fullDescription: "SKY WATCH offre une vision stratégique globale pour l'observation continue et détection d'anomalies. Grâce à l'analyse multi-capteurs (Optique & Radar), la plateforme détecte les activités inhabituelles, les nouvelles pistes ou les mouvements suspects, permettant une réponse rapide des forces de sécurité.",
         image: "https://img.freepik.com/free-photo/aerial-shot-beautiful-green-hills-curvy-road-going-along-edge-amazing-sea_181624-2332.jpg",
         color: "secondary",
         features: [
@@ -674,11 +674,11 @@ async function seedContent() {
         ]
       },
       {
-        id: "sky-forest",
-        name: "SKY FOREST",
-        tagline: "Surveillance environnementale & déforestation",
+        id: "sky-green",
+        name: "SKY GREEN",
+        tagline: "Suivi et protection des zones végétales et écologiques.",
         description: "Système de surveillance spatiale des forêts pour le suivi des pressions, la protection et le reporting environnemental.",
-        fullDescription: "SKY FOREST est un outil de gouvernance environnementale puissant. Il permet de monitorer l'état de santé des forêts, de détecter les coupes illégales dès les premiers hectares et de quantifier les programmes de reforestation. C'est l'outil indispensable pour les politiques de crédit carbone et de conservation.",
+        fullDescription: "SKY GREEN est un outil de gouvernance environnementale puissant. Il permet de monitorer l'état de santé des zones végétales et écologiques, de détecter les coupes illégales dès les premiers hectares et de quantifier les programmes de reforestation. C'est l'outil indispensable pour les politiques de crédit carbone et de conservation.",
         image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
         color: "accent",
         features: [
@@ -699,11 +699,11 @@ async function seedContent() {
         ]
       },
       {
-        id: "sky-fish",
-        name: "SKY FISH",
-        tagline: "Surveillance maritime & sécurité halieutique",
+        id: "sky-ocean",
+        name: "SKY OCEAN",
+        tagline: "Veille et suivi des zones maritimes stratégiques.",
         description: "Système d'observation maritime dédié à la veille des zones économiques exclusives.",
-        fullDescription: "SKY FISH assure la souveraineté maritime en surveillant les Zones Économiques Exclusives (ZEE). En croisant les données AIS (Automatic Identification System) avec la détection radar des navires 'non-coopératifs', SKY FISH identifie la pêche illégale et protège les ressources maritimes.",
+        fullDescription: "SKY OCEAN assure la souveraineté maritime en surveillant les zones maritimes stratégiques. En croisant les données AIS (Automatic Identification System) avec la détection radar des navires 'non-coopératifs', SKY OCEAN identifie la pêche illégale et protège les ressources maritimes.",
         image: "https://img.freepik.com/free-photo/overhead-shot-wooden-dock-coast-with-fishing-boat-it_181624-2013.jpg",
         color: "primary",
         features: [
@@ -724,11 +724,11 @@ async function seedContent() {
         ]
       },
       {
-        id: "sky-cadastre",
-        name: "SKY CADASTRE",
-        tagline: "Gouvernance foncière & aménagement",
+        id: "sky-geo",
+        name: "SKY GEO",
+        tagline: "Cartographie et indicateurs territoriaux.",
         description: "Système de détection de changement d'occupation du sol pour la planification urbaine.",
-        fullDescription: "SKY CADASTRE révolutionne la gestion foncière en fournissant un inventaire exhaustif et actualisé de l'occupation du sol. Il permet de réconcilier les données cadastrales théoriques avec la réalité du terrain observée par satellite, facilitant ainsi la planification urbaine et la sécurisation foncière.",
+        fullDescription: "SKY GEO révolutionne la gestion territoriale en fournissant un inventaire exhaustif et actualisé de l'occupation du sol. Il permet de réconcilier les données cadastrales théoriques avec la réalité du terrain observée par satellite, facilitant ainsi la planification urbaine et la sécurisation foncière.",
         image: "https://img.freepik.com/free-photo/cultivated-field-from_158595-6241.jpg",
         color: "secondary",
         features: [
@@ -749,11 +749,11 @@ async function seedContent() {
         ]
       },
       {
-        id: "sky-transport",
-        name: "SKY TRANSPORT",
-        tagline: "Mobilité urbaine & planification d'infrastructures",
+        id: "sky-traffic",
+        name: "SKY TRAFFIC",
+        tagline: "Suivi et analyse des flux de transport et mobilité urbaine.",
         description: "Système de gestion et d'analyse du transport urbain et routier par satellite.",
-        fullDescription: "SKY TRANSPORT analyse les flux de mobilité et l'état des infrastructures de transport. En surveillant les axes majeurs et les hubs logistiques, la solution aide les décideurs à optimiser les tracés routiers, à identifier les goulots d'étranglement et à prioriser les travaux de maintenance.",
+        fullDescription: "SKY TRAFFIC analyse les flux de transport et mobilité urbaine et l'état des infrastructures de transport. En surveillant les axes majeurs et les hubs logistiques, la solution aide les décideurs à optimiser les tracés routiers, à identifier les goulots d'étranglement et à prioriser les travaux de maintenance.",
         image: "https://images.unsplash.com/photo-1506751470038-e579eb91f580",
         color: "accent",
         features: [

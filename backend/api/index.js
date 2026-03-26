@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ['https://ones-sky.vercel.app', 'https://www.ones-sky.vercel.app']
+    ? ['https://ones-sky.vercel.app', 'https://www.ones-sky.vercel.app']
     : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true
 }));
@@ -53,4 +53,5 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
+// Export for Vercel
 module.exports = app;

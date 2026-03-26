@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "ones-sky-fullstack",
   "builds": [
     {
       "src": "onesky/package.json",
@@ -8,10 +7,6 @@
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "backend/api/index.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -21,14 +16,12 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/onesky/$1"
+      "dest": "/onesky/index.html"
     }
   ],
-  "installCommand": "cd onesky && npm install && cd ../backend && npm install",
-  "buildCommand": "cd onesky && npm run build",
-  "outputDirectory": "onesky/dist",
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "framework": null
+  "functions": {
+    "backend/api/index.js": {
+      "maxDuration": 10
+    }
+  }
 }

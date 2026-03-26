@@ -1,18 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "onesky/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "backend/api/index.js",
-      "use": "@vercel/node"
+  "buildCommand": "cd onesky && npm install && npm run build",
+  "outputDirectory": "onesky/dist",
+  "installCommand": "cd onesky && npm install",
+  "functions": {
+    "backend/api/index.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
